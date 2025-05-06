@@ -7,6 +7,9 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ObtenerTasa {
     public Tasa buscaTasa(String urlFinal) throws IOException, InterruptedException {
@@ -20,6 +23,18 @@ public class ObtenerTasa {
         HttpResponse<String> respuesta = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
-        return new Gson().fromJson(respuesta.body(), Tasa.class);
+        // Parseamos todo el JSON
+        Tasa tasaCompleta = new Gson().fromJson(respuesta.body(), Tasa.class);
+
+        // Códigos de monedas a conservar
+        Set<String> monedasFiltradas = Set.of("ARS", "BOB", "BRL", "CLP", "COP", "USD");
+
+        // Filtrar el mapa
+        Map<String, Double> filtradas = tasaCompleta.conversion_rates().entrySet().stream()
+                .filter(e -> monedasFiltradas.contains(e.getKey()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        // Retornamos una nueva instancia `Tasa` con solo las monedas deseadas
+        return new Tasa(tasaCompleta.base_code(), filtradas);
     }
 }

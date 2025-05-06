@@ -2,7 +2,7 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-
+/gson-2.13.1.jar
 
 ### Eclipse ###
 .apt_generated

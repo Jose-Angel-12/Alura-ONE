@@ -12,6 +12,6 @@ public class ConversorApp {
         //scanner.close();
         ObtenerTasa obtenerTasa = new ObtenerTasa();
 
-        System.out.println(obtenerTasa.buscaTasa("USD").conversion_rates().get("COP") * 10);
+        System.out.println(obtenerTasa.buscaTasa("USD"));
     }
 }
