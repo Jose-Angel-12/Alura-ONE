@@ -27,7 +27,7 @@ public class ObtenerTasa {
         Tasa tasaCompleta = new Gson().fromJson(respuesta.body(), Tasa.class);
 
         // Códigos de monedas a conservar
-        Set<String> monedasFiltradas = Set.of("ARS", "BOB", "BRL", "CLP", "COP", "USD");
+        Set<String> monedasFiltradas = Set.of("ARS", "BRL", "COP", "USD");
 
         // Filtrar el mapa
         Map<String, Double> filtradas = tasaCompleta.conversion_rates().entrySet().stream()
