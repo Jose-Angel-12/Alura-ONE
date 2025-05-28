@@ -1,5 +1,6 @@
 package com.aluracursos.screenmatch.service;
-//CREADA EN EL VIDEO 1.4
+
 public interface IConvierteDatos {
+    //este es un metodo generico que me puede o no retornar algun valor del cual aun no se cual es
     <T> T obtenerDatos(String json, Class<T> clase);
 }
