@@ -7,8 +7,7 @@ import com.aluracursos.screenmatch.model.Episodio;
 import com.aluracursos.screenmatch.service.ConsumoAPi;
 import com.aluracursos.screenmatch.service.ConvierteDatos;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
