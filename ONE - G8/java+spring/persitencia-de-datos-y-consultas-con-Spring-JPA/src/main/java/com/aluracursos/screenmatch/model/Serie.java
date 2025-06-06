@@ -38,6 +38,10 @@ public class Serie {
         this.sinopsis = datosSerie.sinopsis();
     }
 
+    public List<Episodio> getEpisodio(){
+        return episodios;
+    }
+
     public void setEpisodios(List<Episodio> episodios) {
         episodios.forEach(e -> e.setSerie(this));
         this.episodios = episodios;
